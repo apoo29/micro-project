@@ -1,0 +1,23 @@
+version: '3.8'
+services:
+  serviceA:
+    image: servicea:latest
+    build:
+      context: ./servicea
+    ports:
+      - "8084:8084"
+  serviceB:
+    image: serviceb:latest
+    build:
+      context: ./serviceb
+    ports:
+      - "8085:8085"
+  serviceC:
+    image: servicec:latest
+    build:
+      context: ./servicec
+    ports:
+      - "8086:8086"
+    depends_on:
+      - serviceA
+      - serviceB
