@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: servicea
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: servicea
+  template:
+    metadata:
+      labels:
+        app: servicea
+    spec:
+      containers:
+        - name: servicea
+          image: 816794784258.dkr.ecr.us-east-1.amazonaws.com/servicea:latest  # ECR image URL
+          ports:
+            - containerPort: 8084
